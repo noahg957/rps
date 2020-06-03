@@ -1,0 +1,74 @@
+<!doctype html>
+
+<head>
+  <title></title>
+</head>
+<body>
+  <script>
+function computerPlay() {
+    let random = randomNum();
+    function randomNum(){
+        return Math.random()
+ }
+    if (random < 0.34) {
+       return "scissors"
+        }
+    else if (random < 0.67) {
+        return "rock"
+    }
+    else {
+       return "paper" 
+    }
+}
+function playRound(playerSelection, computerSelection) {
+	let playerPick = playerSelection.toLowerCase()
+    const tie = "It's a tie! "
+    const win = "You win! "
+    const lose = "You lose! "
+    const paperWin = "Paper covers Rock!"
+    const rockWin = "Rock crushes scissors!"
+    const scissorsWin = "Scissors cuts paper!"
+    if (playerPick == 'rock') {
+        if (computerSelection == 'rock') {
+            return tie + "A rock can't beat another rock!"
+        }
+        else if (computerSelection == 'paper') {
+            return lose + paperWin
+        }
+        else {
+            return win + rockWin
+        }
+    }
+    else if (playerPick == 'paper') {
+        if (computerSelection == 'rock') {
+            return win + paperWin
+        }
+        else if (computerSelection == 'paper') {
+            return tie + "Paper can't beat paper!"
+        }
+        else {
+            return lose + scissorsWin
+        }
+    }
+    else {
+        if (computerSelection == 'rock') {
+            return lose + rockWin
+        }
+        else if (computerSelection == 'paper') {
+            return win + scissorsWin
+        }
+        else  {
+            return tie + "Scissors can't cut scissors!"
+        }
+    }
+}
+
+const playerSelection = prompt("put something in!")
+const computerSelection = computerPlay()
+console.log(playRound(playerSelection, computerSelection))
+
+
+
+  </script>
+</body>
+</html>
